@@ -1,0 +1,8 @@
+// routes/freshdeskRoutes.js
+const express = require('express');
+const router = express.Router();
+const { syncData } = require('../controllers/freshdeskController');
+
+router.post('/sync', syncData);
+
+module.exports = router;

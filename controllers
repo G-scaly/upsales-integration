@@ -1,0 +1,24 @@
+// controllers/freshdeskController.js
+const axios = require('axios');
+
+// Example function to sync data
+const syncData = async (req, res) => {
+  try {
+    // Make a request to Freshdesk API
+    const freshdeskResponse = await axios.get('https://your-freshdesk-domain/api/v2/tickets', {
+      headers: {
+        'Authorization': `Basic ${Buffer.from(process.env.FRESHDESK_API_KEY).toString('base64')}`,
+      },
+    });
+
+    // Process and sync data to Upsales (your logic here)
+    console.log(freshdeskResponse.data);
+
+    res.status(200).json({ message: 'Data synced successfully' });
+  } catch (error) {
+    console.error('Error syncing data:', error.message);
+    res.status(500).json({ error: 'Error syncing data' });
+  }
+};
+
+module.exports = { syncData };
