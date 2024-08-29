@@ -1,9 +1,0 @@
-// models/SyncLog.js
-const mongoose = require('mongoose');
-
-const syncLogSchema = new mongoose.Schema({
-  timestamp: { type: Date, default: Date.now },
-  data: { type: Object },
-});
-
-module.exports = mongoose.model('SyncLog', syncLogSchema);
